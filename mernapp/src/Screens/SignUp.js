@@ -4,22 +4,7 @@ import { Link } from 'react-router-dom'
 
 export default function SignUp() {
     const [credentials,setcredentials] = useState({name:"", Email:"",password:"",geolocation:""})
-
-    // const handleSubmit = async (e)=>{
-    //     e.preventDefault();
-    //     const response =  await fetch("http://localhost:5001/api/createuser",{
-    //         method:'POST',
-    //         headers:{
-    //             'Content-Type':'application/json'
-    //         },
-    //         body:JSON.stringify({name:credentials.name,Email:credentials.Email,password:credentials.password,location:credentials.geolocation})
-    //     });
-    //     const json =  await response.json()
-    //     console.log(json);
-    //     if(!json.success){
-    //         alert("Enter the Correct Credentials")
-    //     }
-    // }
+    
     const handleSubmit = async (e) => {
         e.preventDefault();
         const response = await fetch("http://localhost:5001/api/createuser", {
