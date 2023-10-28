@@ -1,8 +1,10 @@
 import React from 'react'
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 export default function Login() {
   const [credentials,setcredentials] = useState({Email:"",password:""})
+  let navigate = useNavigate();
     
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -18,6 +20,11 @@ export default function Login() {
         console.log(json);
         if (!json.success) {
           alert("Enter the Correct Credentials")
+        }
+        if(json.success){
+          localStorage.setItem("authToken",json.authToken);
+          console.log(localStorage.getItem("authToken"));
+          navigate("/");
         }
     }
 } 

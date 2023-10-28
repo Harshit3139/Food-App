@@ -2,9 +2,14 @@ const express = require ('express');
 const router = express.Router ();
 const user = require ('../models/user');
 
-const {body, validationResult} = require ('express-validator');
+const jwt = require("jsonwebtoken");
+const jwtSecret = "Thisismadeforsomepersonaluse$#"
 
-router.post ('/createuser',
+const {body, validationResult} = require ('express-validator');
+const bcrypt = require ('bcryptjs');
+
+router.post (
+  '/createuser',
   [
     body ('Email').isEmail (),
     body ('name').isLength ({min: 5}),
@@ -15,11 +20,15 @@ router.post ('/createuser',
     if (!errors.isEmpty ()) {
       return res.status (400).json ({errors: errors.array ()});
     }
+
+    const salt = await bcrypt.genSalt (10);
+    let secPassword = await bcrypt.hash (req.body.password, salt);
+
     try {
       await user
         .create ({
           name: req.body.name,
-          password: req.body.password,
+          password: secPassword,
           Email: req.body.Email,
           location: req.body.location,
         })
@@ -31,7 +40,8 @@ router.post ('/createuser',
   }
 );
 
-router.post ('/loginuser',
+router.post (
+  '/loginuser',
   [
     body ('Email').isEmail (),
     body ('password', 'Incorrect Password').isLength ({min: 5}),
@@ -41,17 +51,27 @@ router.post ('/loginuser',
     if (!errors.isEmpty ()) {
       return res.status (400).json ({errors: errors.array ()});
     }
-    let email = req.body.email;
+    let Email = req.body.Email;
 
     try {
-      let userdata = await user.findOne ({email});
+      let userdata = await user.findOne({Email});
       if (!userdata) {
-        return res.status (400).json ({errors: 'Try  with Correct credentials'});
+        return res
+          .status (400)
+          .json ({errors: 'Try  with Correct credentials'});
       }
-      if (req.body.password !== userdata.password) {
+      const pwdComapre = await bcrypt.compare(req.body.password,userdata.password)
+      if (!pwdComapre) {
         return res.status (400).json ({errors: 'Try with Correct credentials'});
       }
-      return res.json ({success: true});
+
+      const data = {
+        user:{
+            id:userdata.id
+        }
+      }
+      const authToken = jwt.sign(data,jwtSecret)
+      return res.json ({success: true,authToken:authToken});
     } catch (error) {
       console.log (error);
       res.json ({success: false});
