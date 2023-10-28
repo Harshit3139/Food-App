@@ -13,14 +13,15 @@ export default function Crousal() {
     </form>
   </div>
     <div className="carousel-item active">
-      <img src="https://source.unsplash.com/random/200×200/?burger" className="d-block w-100" style={{filter:"brightness(60%)"}} alt="..."/>
+      <img src="https://source.unsplash.com/random/200x100/?burger" className="d-block w-100" style={{filter:"brightness(60%)"}} alt="..."/>
     </div>
     <div className="carousel-item">
-      <img src="https://source.unsplash.com/random/200×200/?pizza" className="d-block w-100" style={{filter:"brightness(60%)"}} alt="..."/>
+      <img src="https://source.unsplash.com/random/200×100/?pizza" className="d-block w-100" style={{filter:"brightness(60%)"}} alt="..."/>
     </div>
     <div className="carousel-item">
-      <img src="https://source.unsplash.com/random/200×200/?barbeque" className="d-block w-100" style={{filter:"brightness(60%)"}}  alt="..."/>
+      <img src="https://source.unsplash.com/random/200×100/?barbeque" className="d-block w-100" style={{filter:"brightness(60%)"}}  alt="..."/>
     </div>
+    
   </div>
   <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleFade" data-bs-slide="prev">
     <span className="carousel-control-prev-icon" aria-hidden="true"></span>
