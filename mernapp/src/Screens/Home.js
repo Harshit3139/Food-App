@@ -6,7 +6,7 @@ import Card from '../Components/Card';
 import {useEffect, useState} from 'react';
 
 export default function Home() {
-  const [search,setSearch] = useState[''];
+  const [search,setSearch] = useState('');
   const [foodCat, setFoodCat] = useState ([]);
   //const [foodItem, setFoodItem] = useState ([]);
   const [foodItem, setFoodItem] = useState([]);
@@ -70,7 +70,7 @@ return(
           {data.CategoryName}
           </div>
           <hr/>
-          {foodItem && foodItem.length !== 0 ? foodItem.filter((item)=>item.CategoryName === data.CategoryName)
+          {foodItem && foodItem.length !== 0 ? foodItem.filter((item)=>(item.CategoryName === data.CategoryName && item.name.toLowerCase().includes(search.toLowerCase())))
           .map((filterItems)=>{
             return(
               <div className="col-12 col-md-6 col-lg-3 mb-3" key={filterItems._id}>
