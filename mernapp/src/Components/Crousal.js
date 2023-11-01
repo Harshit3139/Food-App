@@ -13,7 +13,7 @@ export default function Crousal() {
     </form>
   </div>
     <div className="carousel-item active">
-      <img src="https://source.unsplash.com/random/200x100/?bun" className="d-block w-100" style={{filter:"brightness(60%)"}} alt="..."/>
+      <img src="https://source.unsplash.com/random/200×100/?momos" className="d-block w-100" style={{filter:"brightness(60%)"}} alt="..."/>
     </div>
     <div className="carousel-item">
       <img src="https://source.unsplash.com/random/200×100/?pizza" className="d-block w-100" style={{filter:"brightness(60%)"}} alt="..."/>

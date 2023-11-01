@@ -5,12 +5,16 @@ export default function Card(props) {
 let options = props.options;
 let priceOptions = Object.keys(options)
 
+const handleAddToCart =()=>{
+
+}
+
 
   return (
     <div>
     <div>
     <div className="card mt-3" style={{"width" : "18rem","maxHeight":"360px"}}>
-  <img src={props.imgSrc} className="card-img-top" alt="..."/>
+  <img src="https://source.unsplash.com/random/200×100/?pizza" className="card-img-top" alt="..." style={{height:"120px",objectFit:"fill"}}/>
   
   <div className="card-body">
     <h5 className="card-title">{props.foodName}</h5>
@@ -34,6 +38,9 @@ let priceOptions = Object.keys(options)
         Total Price
         </div>
     </div>
+    <hr>
+    </hr>
+      <button className={`btn btn-success justify-center ms-2`} onClick={handleAddToCart}>Add To Card</button>
  
   </div>
 </div>
