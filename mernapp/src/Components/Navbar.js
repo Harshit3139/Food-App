@@ -4,7 +4,10 @@ import Badge from 'react-bootstrap/Badge';
 import { useState } from 'react';
 import Modal from '../Modal';
 import Cart from '../Screens/Cart';
+import { useCart } from './contexReducer';
 export default function Navbar() {
+
+  let data = useCart();
 
   const [cartView ,setCartView] = useState(false);
   const navigate = useNavigate();
@@ -47,7 +50,7 @@ export default function Navbar() {
           <div>
           <div className='btn bg-white text-success mx-2' onClick={()=>{setCartView(true)}}> 
           My Cart{" "} 
-          <Badge pill bg="danger"> 2 </Badge> 
+          <Badge pill bg="danger"> {data.length} </Badge> 
           </div>
           {cartView ? <Modal onClose={()=>setCartView(false)}><Cart/></Modal>:null}
           <div className='btn bg-white text-danger mx-2' onClick={handleLogout}> LogOut </div> 
