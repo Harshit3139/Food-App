@@ -28,7 +28,7 @@ export default function Cart() {
       },
       body: JSON.stringify({
         order_data: data,
-        Email: userEmail,
+        email: userEmail,
         order_date: new Date().toDateString()
       })
     });
