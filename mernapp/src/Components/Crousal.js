@@ -13,13 +13,13 @@ export default function Crousal() {
     </form>
   </div>
     <div className="carousel-item active">
-      <img src="https://source.unsplash.com/random/200×100/?momos" className="d-block w-100" style={{filter:"brightness(60%)"}} alt="..."/>
+      <img src="https://source.unsplash.com/random/900×700/?momos" className="d-block w-100" style={{filter:"brightness(90%)"}} alt="..."/>
     </div>
     <div className="carousel-item">
-      <img src="https://source.unsplash.com/random/200×100/?pizza" className="d-block w-100" style={{filter:"brightness(60%)"}} alt="..."/>
+      <img src="https://source.unsplash.com/random/900×700/?burger,pizza" className="d-block w-100" style={{filter:"brightness(90%)"}} alt="..."/>
     </div>
     <div className="carousel-item">
-      <img src="https://source.unsplash.com/random/200×100/?barbeque" className="d-block w-100" style={{filter:"brightness(60%)"}}  alt="..."/>
+      <img src="https://source.unsplash.com/random/900×700/?fruit" className="d-block w-100" style={{filter:"brightness(90%)"}}  alt="..."/>
     </div>
     
   </div>
