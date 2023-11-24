@@ -3,10 +3,10 @@ const router = express.Router ();
 const user = require ('../models/user');
 
 const jwt = require("jsonwebtoken");
-const jwtSecret = "Thisismadeforsomepersonaluse$#"
+const jwtSecret = "Thisismadeforsomepersonaluse$#"  //authentication and authorization
 
 const {body, validationResult} = require ('express-validator');
-const bcrypt = require ('bcryptjs');
+const bcrypt = require ('bcryptjs'); // hashing 
 
 router.post (
   '/createuser',
