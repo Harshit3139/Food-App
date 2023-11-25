@@ -7,7 +7,7 @@ const reducer = (state, action) => {
   // Define your reducer logic here
   switch(action.type){
     case "ADD":
-        return [...state,{id:action.id,name:action.name,qty:action.qty,size:action.size,price:action.price,imgSrc:action.imgSrc}]
+        return [...state,{id:action.id,name:action.name,qty:action.qty,size:action.size,price:action.price}]
     case "REMOVE":
         let newArr = [...state]
         newArr.splice(action.index,1);
